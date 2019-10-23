@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from flask_cors import CORS
-from carCamera import CarCamera
+from CarCamera import CarCamera
 from car import Car
 import time
 import pandas as pd
@@ -34,7 +34,7 @@ def stop():
     print("Recording Stopped")
 
     df = pd.DataFrame(speed_angle_data)
-    os.chdir("/home/pi/Desktop/Car/csvFiles")
+    os.chdir("csvFiles")
     df.to_csv('{0:f}'.format(speed_angle_data['Start Time']) + '.csv')
     resetList()
     return "Stopped"
