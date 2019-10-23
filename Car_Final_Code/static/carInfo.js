@@ -9,6 +9,8 @@ $(document).ready(function(){
   var decreaseSpeed = document.getElementById("decreaseSpeed");
   var recordButton = document.getElementById("recordButton");
   var recordingOutput = document.getElementById("recordingValue");
+  var pictureButton = document.getElementById("pictureButton");
+  var pictureValue = document.getElementById("pictureValue");
 
   recordingOutput.innerHTML = "Not Recording";
   increaseSpeed.value = "90";
@@ -27,6 +29,10 @@ $(document).ready(function(){
     push_data(increaseSpeed.value, steeringSlider.value, "/stop");
 
   };
+
+  pictureButton.onClick = function(){
+  push_data(increeseSpeed.value, steeringSlider.value, "/take_picture")
+  }
 
   recordButton.onclick = function(){
 
