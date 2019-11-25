@@ -124,4 +124,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+#STEM Club additions
 videos/
+csvFiles/
+Car_Final_Code/csvFiles

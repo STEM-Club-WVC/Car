@@ -27,18 +27,20 @@
       <br>
       <br>
 
-      <div class="slidecontainer">
-        <div class="outer">
-	  <div class="inner"><button id="recordButton" type="button" class="block" name="recordButton">Record Video</button></div>
-          <p><span id="recordingValue"></span></p>        
+      <div >
+        <button id="recordButton" type="button" class="block" name="recordButton">Record Video</button>
+        <p><span id="recordingValue"></span></p>
+        <br>
+        <br>
 
-	  <div class="inner"><button id="pictureButton" type="button" class="block" name="pictureButton">Take Picture</button></div>
-          <p><span id="pictureValue"></span></p>
-        </div>
+        <button id="pictureButton" type="button" class="block" name="pictureButton">Take Picture</button>
+        <p><span id="pictureValue"></span></p>
+        <br>
+        <br>
       </div>
 
       <label for="steering" style="font-size: 50px">Steering:</label>
-      <input id="steering" type="range" min="25" max="75" value="50" class="slider">
+      <input id="steering" type="range" min="50" max="150" value="100" class="slider">
       <p>Steering: <span id="steeringValue"></span></p>
     </div>
 

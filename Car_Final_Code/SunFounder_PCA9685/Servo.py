@@ -16,9 +16,9 @@ from . import PCA9685
 
 class Servo(object):
 	'''Servo driver class'''
-	_MIN_PULSE_WIDTH = 800
-	_MAX_PULSE_WIDTH = 1450
-	_DEFAULT_PULSE_WIDTH = 1125
+	_MIN_PULSE_WIDTH = 600
+	_MAX_PULSE_WIDTH = 2400
+	_DEFAULT_PULSE_WIDTH = 1500
 	_FREQUENCY = 60
 
 	_DEBUG = False
@@ -36,7 +36,7 @@ class Servo(object):
 		self.pwm = PCA9685.PWM(bus_number=bus_number, address=address)
 		self.frequency = self._FREQUENCY
 		self.write(90)
-
+	
 	def _debug_(self,message):
 		if self._DEBUG:
 			print(self._DEBUG_INFO,message)

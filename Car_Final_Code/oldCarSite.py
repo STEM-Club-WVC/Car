@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request
 from flask_cors import CORS
-from CarCamera import CarCamera
+from carCamera import CarCamera
 from car import Car
-#import car
 import time
 import pandas as pd
 import os
@@ -10,7 +9,7 @@ import os
 speed_angle_data = {'Time':[], 'Speed':[], 'Angle':[], 'Start Time': 0, 'Stop Time' : 0}
 
 car = Car()
-#camera = CarCamera()
+camera = CarCamera()
 
 app = Flask(__name__)
 CORS(app)
@@ -35,7 +34,7 @@ def stop():
     print("Recording Stopped")
 
     df = pd.DataFrame(speed_angle_data)
-    os.chdir("csvFiles")
+    os.chdir("/home/pi/Desktop/Car/csvFiles")
     df.to_csv('{0:f}'.format(speed_angle_data['Start Time']) + '.csv')
     resetList()
     return "Stopped"
@@ -51,8 +50,8 @@ def record_data():
 @app.route('/change_speed', methods= ['GET', 'POST'])
 def change_speed():
     currentTime = time.time()
-    speed = request.args.get('speed', 46)
-    steering = request.args.get('steering', 50)
+    speed = request.args.get('speed', 90)
+    steering = request.args.get('steering', 100)
     car.updateMovement(int(speed), int(steering))
     appendToList(currentTime, speed, steering)
     print('Speed: {}    Steering: {}'.format(speed, steering))
@@ -62,8 +61,8 @@ def change_speed():
 @app.route('/data_update', methods= ['GET', 'POST'])
 def data_update():
     currentTime = time.time()
-    speed = request.args.get('speed', 46)
-    steering = request.args.get('steering', 50)
+    speed = request.args.get('speed', 90)
+    steering = request.args.get('steering', 90)
     appendToList(currentTime, speed, steering)
     car.updateMovement(int(speed), int(steering))
     print('Speed: {0}    Steering: {1}     Time: {2:f}'.format(speed, steering, currentTime))

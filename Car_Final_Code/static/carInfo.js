@@ -13,17 +13,17 @@ $(document).ready(function(){
   var pictureValue = document.getElementById("pictureValue");
 
   recordingOutput.innerHTML = "Not Recording";
-  increaseSpeed.value = "90";
-  decreaseSpeed.value = "90";
-  steeringSlider.value = "100";
+  increaseSpeed.value = "46";
+  decreaseSpeed.value = "46";
+  steeringSlider.value = "50";
 
   stopButton.onclick = function(){
 
     recordingOutput.innerHTML = "Stopped Recording";
 
-    increaseSpeed.value = "90";
-    decreaseSpeed.value = "90";
-    steeringSlider.value = "100";
+    increaseSpeed.value = "46";
+    decreaseSpeed.value = "46";
+    steeringSlider.value = "50";
     speedOutput.innerHTML = increaseSpeed.value;
     steeringOutput.innerHTML = steeringValue.value;
     push_data(increaseSpeed.value, steeringSlider.value, "/stop");
