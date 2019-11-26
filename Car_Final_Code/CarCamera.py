@@ -10,7 +10,15 @@ class CarCamera():
         self.camera.framerate = 24
 
     def GetPicturePath(self):
-        path = "/home/pi/Desktop/image.jpg"
+        directory = "/home/pi/Desktop/Car Images"
+        path = directory + "/image.jpg"
+        #Make the directory if it does not exist.
+        if not(os.path.isdir(directory)):
+            os.mkdir(directory)
+        i = 0
+        while(os.path.isfile(path)):
+            path = directory + "/" + str(i) + "image.jpg"
+            i += 1
         return path
 
     def TakePicture(self):
