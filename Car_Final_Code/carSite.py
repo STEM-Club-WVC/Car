@@ -7,10 +7,10 @@ import time
 import pandas as pd
 import os
 
-speed_angle_data = {'Time':[], 'Speed':[], 'Angle':[], 'Start Time': 0, 'Stop Time' : 0}
+speed_angle_data = {'Time':[], 'Speed':[], 'Angle':[], 'Start Time': 0, 'Stop Time' : 0, 'Picture Time': 0}
 
 car = Car()
-#camera = CarCamera()
+camera = CarCamera()
 
 app = Flask(__name__)
 CORS(app)
@@ -39,6 +39,15 @@ def stop():
     df.to_csv('{0:f}'.format(speed_angle_data['Start Time']) + '.csv')
     resetList()
     return "Stopped"
+
+@app.route('/take_picture', methods=['GET', 'POST'])
+def take_picture():
+
+    speed_angle_data['Picture Time'] = camera.TakePicture()
+    print("Taking Picture!")
+
+    return "TakePicture"
+
 
 @app.route('/record_data', methods=['GET', 'POST'])
 def record_data():

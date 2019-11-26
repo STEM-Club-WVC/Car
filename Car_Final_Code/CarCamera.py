@@ -9,6 +9,17 @@ class CarCamera():
         self.camera.resolution = ('720p')
         self.camera.framerate = 24
 
+    def GetPicturePath(self):
+        path = "/home/pi/Desktop/image.jpg"
+        return path
+
+    def TakePicture(self):
+        print("Attempting to take picture.")
+        picPath = self.GetPicturePath()
+        print("Picture Path: " + picPath)
+        self.camera.capture(picPath)
+        return float(time.time())
+
     def start(self):
         os.chdir("/home/pi/Desktop/Car/videos")
         start_time = (time.time())

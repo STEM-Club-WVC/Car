@@ -30,9 +30,10 @@ $(document).ready(function(){
 
   };
 
-  pictureButton.onClick = function(){
-  push_data(increeseSpeed.value, steeringSlider.value, "/take_picture")
-  }
+  pictureButton.onclick = function(){
+
+     push_data(increaseSpeed.value, steeringSlider.value, "/take_picture")
+  };
 
   recordButton.onclick = function(){
 
